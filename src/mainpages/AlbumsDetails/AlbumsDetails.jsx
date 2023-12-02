@@ -4,11 +4,11 @@ import NavBar from "../../components/NavBar/NavBar";
 import { ReactComponent as LeftArrowIcon } from "../../assets/LeftArrow.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 import Footer from "../../components/Footer/Footer";
 import { ReactComponent as ShuffleIcon } from "../../assets/shuffleIcon.svg";
 import { ReactComponent as LibraryIcon } from "../../assets/libraryIcon.svg";
 import { convertMsToTime } from "../../config/helper-methods";
-
 import CustomPagination from "../../components/Pagination/CustomPagination";
 
 const AlbumsDetails = () => {
@@ -135,7 +135,7 @@ const AlbumsDetails = () => {
       ) : (
         <>"No DataFound"</>
       )}
-
+      <AudioPlayer />
       <Footer />
     </div>
   );

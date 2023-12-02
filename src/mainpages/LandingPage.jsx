@@ -9,6 +9,7 @@ import FilterTabs from "../components/FilterTabs/FilterTabs.jsx";
 import { accordionData } from "../config/helper-config.js";
 import CustomAccordion from "../components/Accordion/CustomAccordion.jsx";
 import Footer from "../components/Footer/Footer.jsx";
+import AudioPlayer from "../components/AudioPlayer/AudioPlayer.jsx";
 
 
 
@@ -115,6 +116,7 @@ const LandingPage = () => {
           <></>
         )}
       </div>
+      <AudioPlayer />
       <Footer />
     </>
   );
