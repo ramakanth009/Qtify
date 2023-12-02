@@ -1,21 +1,48 @@
-import React from "react";
-import Logo from "./Logo/Logo";
-import SearchBar from "./SearchBar/SearchBar";
-import "./NavBar.css";
-import Button from "./Button/Button";
-
-/**
- * Represents the navigation bar component.
- * Renders a navigation bar with a logo, search bar, and a button.
- * @returns {JSX.Element} The rendered navigation bar component.
- */
-const NavBar = () => {
+import React, { useState } from "react";
+import styles from "./NavBar.module.css";
+import Logo from "../Logo/Logo";
+import SearchBar from "../SearchBar/SearchBar.jsx";
+import FeedBackModal from "../FeedBackModal/FeedBackModal";
+import { useNavigate } from "react-router-dom";
+const NavBar = ({ data, logo = false, search = false, feedback = false }) => {
+  const [isFeedBackModalOpen, setIsFeedBackModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const toggleFeedBackModal = (value = false) => {
+    setIsFeedBackModalOpen(value);
+  };
+  //   const _onSuccess = () => {
+  //     show toast
+  //     showToast("Feedback Submitted", "success");
+  //   };
   return (
-    <nav className="navBar">
-      <Logo />
-      <SearchBar />
-      <Button text="Give Feedback" />
-    </nav>
+    <div className={styles.wrapper}>
+      <nav className={styles.navbar}>
+        <div className={styles.logoWrapper} onClick={() => navigate(`/`)}>
+          {logo ? <Logo id={styles.logo} /> : null}
+        </div>
+        {search ? (
+          <div className={styles.searchWrapper}>
+            <SearchBar
+              placeholder="Search a album of your choice"
+              data={data}
+            />
+          </div>
+        ) : null}
+        {feedback ? (
+          <div
+            className={styles.nav_link}
+            onClick={() => toggleFeedBackModal(true)}
+          >
+            Feedback
+          </div>
+        ) : null}
+      </nav>
+      <FeedBackModal
+        isOpen={isFeedBackModalOpen}
+        //    onSuccess={_onSuccess}
+        onDismiss={toggleFeedBackModal}
+      />
+    </div>
   );
 };
 
