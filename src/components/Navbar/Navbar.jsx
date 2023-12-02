@@ -1,15 +1,22 @@
 import React from "react";
-import Button from "../Button/Button";
-import Logo from "../Logo/Logo";
-import styles from "./Navbar.module.css";
+import Logo from "./Logo/Logo";
+import SearchBar from "./SearchBar/SearchBar";
+import "./NavBar.css";
+import Button from "./Button/Button";
 
-const navbar = () => {
+/**
+ * Represents the navigation bar component.
+ * Renders a navigation bar with a logo, search bar, and a button.
+ * @returns {JSX.Element} The rendered navigation bar component.
+ */
+const NavBar = () => {
   return (
-    <nav className={styles.navbar}>
+    <nav className="navBar">
       <Logo />
-      <Button children="Give Feedback" />
+      <SearchBar />
+      <Button text="Give Feedback" />
     </nav>
   );
 };
 
-export default navbar;
+export default NavBar;
