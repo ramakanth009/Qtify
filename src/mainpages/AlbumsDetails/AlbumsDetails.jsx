@@ -86,7 +86,7 @@ const AlbumsDetails = () => {
                   <p>Shuffle</p>
                 </div>
                 <div className={styles.library_btn_container}>
-                  <LibraryIcon />p Add to library
+                  <LibraryIcon />Add to library
                 </div>
               </div>
             </div>
